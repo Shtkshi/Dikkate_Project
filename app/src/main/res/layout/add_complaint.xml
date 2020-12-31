@@ -1,0 +1,172 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#000000"
+    android:elevation="2dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="20dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Details"
+            android:textColor="#fff"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:text="Status:"
+                android:textColor="#ffffff"
+                android:textSize="20dp"
+
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/status_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="3dp"
+                android:text="Not assigned"
+                android:textColor="#FFB6C1"
+                android:textSize="15dp" />
+
+            <Button
+                android:id="@+id/status_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#FFB6C1"
+                android:padding="5dp"
+                android:shadowRadius="10"
+                android:text="change"
+
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/employee_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/status"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="5dp"
+
+                android:text="Employee \nInformation:"
+                android:textColor="#ffffff"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/employee_status_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="3dp"
+                android:text="Not assigned"
+                android:textColor="#FFB6C1"
+                android:textSize="15dp" />
+
+            <Button
+                android:id="@+id/employee_status_button"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="#FFB6C1"
+                android:padding="5dp"
+                android:shadowRadius="10"
+                android:text="assign"
+
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/problem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/employee_status"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:text="Problem:"
+                android:textColor="#ffffff"
+                android:textSize="20dp"
+
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/problem_edittext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="3dp"
+                android:text="Not assigned"
+                android:textColorHighlight="#ffffff"
+                android:textColor="#FFB6C1"
+                android:textSize="15dp" />
+
+            <Button
+                android:id="@+id/problem_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#FFB6C1"
+                android:padding="5dp"
+                android:shadowRadius="10"
+                android:text="change"
+
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/problem"
+            android:text="Save"
+            android:id="@+id/save_details"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/problem_textview"
+            android:layout_below="@+id/save_details"
+            android:textColor="#ffffff"
+
+            />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
