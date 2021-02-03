@@ -9,18 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Dikkate">
-        <activity android:name=".Fragment1"></activity>
+        <activity android:name=".Activity.FeedbackPage"></activity>
+        <activity android:name=".Fragment.Fragment5" />
+        <activity android:name=".Activity.dialog" />
+        <activity android:name=".Fragment.Fragment1" />
         <activity
-            android:name=".MainUI"
+            android:name=".Activity.MainUI"
             android:label="@string/title_activity_main_u_i"
             android:theme="@style/Theme.Dikkate.NoActionBar" />
         <activity
             android:name=".Drawer"
             android:label="@string/title_activity_drawer"
             android:theme="@style/Theme.Dikkate.NoActionBar" />
-        <activity android:name=".SignIn" />
-        <activity android:name=".LoginScreen" />
-        <activity android:name=".SplashScreen">
+        <activity android:name=".Activity.SignIn" />
+        <activity android:name=".Activity.LoginScreen" />
+        <activity android:name=".Activity.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

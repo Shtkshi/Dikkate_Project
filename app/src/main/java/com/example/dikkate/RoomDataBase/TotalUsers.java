@@ -30,6 +30,8 @@ public class TotalUsers {
     private String Password;
     @ColumnInfo(name = "role")
     private String Role;
+    @ColumnInfo(name="ServiceType")
+    private int ServiceID;
 
     public String getRole() {
         return Role;
@@ -55,8 +57,7 @@ public class TotalUsers {
         Email = email;
     }
 
-    @ColumnInfo(name="ServiceType")
-    private int ServiceID;
+
 
     public String getName() {
         return Name;

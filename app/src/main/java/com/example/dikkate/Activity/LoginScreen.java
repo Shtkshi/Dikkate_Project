@@ -1,10 +1,10 @@
-package com.example.dikkate;
+package com.example.dikkate.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -13,18 +13,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dikkate.R;
 import com.example.dikkate.RoomDataBase.Dao;
-import com.example.dikkate.RoomDataBase.TotalUsers;
 import com.example.dikkate.RoomDataBase.database;
-import com.jgabrielfreitas.core.BlurImageView;
-
-import java.util.ArrayList;
 
 public class LoginScreen extends AppCompatActivity  {
     EditText EmailBox;
     EditText PasswordBox;
     TextView SignInHyperButton;
     Button LogIn;
+    boolean loggedIn=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +56,10 @@ public class LoginScreen extends AppCompatActivity  {
                 if(dao.ExtractPassword(EmailBox.getText().toString()).equals(PasswordBox.getText().toString())){
                     int usertype=dao.ServiceType(EmailBox.getText().toString());
                     Intent intent=new Intent(LoginScreen.this, MainUI.class);
+                    loggedIn=true;
+                    SharedPreferences sharedPreferences=getSharedPreferences("loggedIn",MODE_PRIVATE);
+                    sharedPreferences.edit().putBoolean("loggedIn",loggedIn).apply();
+                    sharedPreferences.edit().putInt("UserId",dao.UserId(EmailBox.getText().toString())).apply();
                     startActivity(intent);
                     finish();
                 }

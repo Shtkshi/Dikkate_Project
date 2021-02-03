@@ -3,8 +3,9 @@
     <string name="title_activity_main_u_i">MainUI</string>
     <string name="tab_text_1">On Going Complaints</string>
     <string name="tab_text_2">Problem solved</string>
-    <string name="tab_text_3">Feedback</string>
+    <string name="tab_text_3">Feedback Employee</string>
     <string name="tab_text_4">work to do</string>
+    <string name="tab_text_5">Feedback Total</string>
     <string name="title_activity_drawer">Drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -16,6 +17,6 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

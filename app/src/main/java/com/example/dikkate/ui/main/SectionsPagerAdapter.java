@@ -8,11 +8,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.dikkate.FloatingActionClicked;
-import com.example.dikkate.Fragment1;
-import com.example.dikkate.Fragment2;
-import com.example.dikkate.Fragment3;
-import com.example.dikkate.Fragment4;
+import com.example.dikkate.Fragment.Fragment1;
+import com.example.dikkate.Fragment.Fragment2;
+import com.example.dikkate.Fragment.Fragment3;
+import com.example.dikkate.Fragment.Fragment4;
+import com.example.dikkate.Fragment.Fragment5;
 import com.example.dikkate.R;
 
 /**
@@ -22,7 +22,7 @@ import com.example.dikkate.R;
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2,R.string.tab_text_3,R.string.tab_text_4};
+    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2,R.string.tab_text_3,R.string.tab_text_4,R.string.tab_text_5};
     private final Context mContext;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
@@ -47,6 +47,9 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
             case 3:
                 fragment=new Fragment4();
                 break;
+            case 4:
+                fragment=new Fragment5();
+                break;
         }
         return fragment;
     }
@@ -60,6 +63,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         // Show 2 total pages.
-        return 4;
+        return 5;
     }
 }

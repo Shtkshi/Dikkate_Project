@@ -1,4 +1,4 @@
-package com.example.dikkate;
+package com.example.dikkate.Util;
 
 public interface FloatingActionClicked {
     void onFloatingActionClicked();

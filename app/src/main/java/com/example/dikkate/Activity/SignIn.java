@@ -1,14 +1,9 @@
-package com.example.dikkate;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.dikkate.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,18 +11,13 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.dikkate.R;
 import com.example.dikkate.RoomDataBase.Dao;
 import com.example.dikkate.RoomDataBase.TotalUsers;
 import com.example.dikkate.RoomDataBase.database;
-
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class SignIn extends Activity implements AdapterView.OnItemSelectedListener {
     EditText NameBox,ContactNoBox,EmailBox,dobBox,AddressBox,Password;
@@ -112,13 +102,13 @@ public class SignIn extends Activity implements AdapterView.OnItemSelectedListen
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         if(parent.getItemAtPosition(position).toString().trim().equals("User")){
-            roletype=1;
+            roletype=0;
         }
         else if(parent.getItemAtPosition(position).toString().trim().equals("Worker")){
-            roletype=2;
+            roletype=1;
         }
         else if(parent.getItemAtPosition(position).toString().trim().equals("Admin")){
-            roletype=3;
+            roletype=2;
         }
     }
 

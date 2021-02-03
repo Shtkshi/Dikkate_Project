@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="30dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="FEEDBACK"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:padding="20dp"
+            />
+
+        <me.zhanghai.android.materialratingbar.MaterialRatingBar
+            android:id="@+id/feedback_star"
+            style="@style/Widget.MaterialRatingBar.RatingBar"
+            android:layout_width="wrap_content"
+            android:padding="20dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:padding="10dp"
+            android:hint="Type your Feedback....."
+            android:textColor="#000000"
+            android:id="@+id/feedback_text"
+            android:textColorHint="#ffffff" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:id="@+id/feedback_submit"
+            android:layout_marginRight="5dp"
+            android:text="submit"
+
+            />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

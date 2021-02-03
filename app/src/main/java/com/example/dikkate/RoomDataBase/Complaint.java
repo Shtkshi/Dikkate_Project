@@ -8,20 +8,69 @@ import androidx.room.PrimaryKey;
 
 @Entity(foreignKeys = @ForeignKey(entity = TotalUsers.class,
         parentColumns = "i",
-        childColumns = "Submitted By"))
+        childColumns = "Submitted_by"))
 public class Complaint {
     @PrimaryKey(autoGenerate = true)
     private int Bill_No;
     @ColumnInfo(name = "Query Names")
     private String query;
-    @ColumnInfo(name = "Submitted By")
     private int Submitted_by;
-    /*@ColumnInfo(name = "Employee Id")
-    private int Employee;
-    @ColumnInfo(name = "Date Assigned")
-    private String date;*/
-    @ColumnInfo(name = "Assigned")
     private boolean assigned = false;
+    private int Employee = -1;
+    private boolean completed = false;
+    private String Feedback = "Feedback";
+    private float Star = 0;
+    private String Feedback_Text = "Feedback";
+    private boolean Given = false;
+
+
+    public float getStar() {
+        return Star;
+    }
+
+    public String getFeedback_Text() {
+        return Feedback_Text;
+    }
+
+    public void setFeedback_Text(String feedback_Text) {
+        Feedback_Text = feedback_Text;
+    }
+
+    public boolean isGiven() {
+        return Given;
+    }
+
+    public void setGiven(boolean given) {
+        Given = given;
+    }
+
+    public void setStar(float star) {
+        Star = star;
+    }
+
+    public String getFeedback() {
+        return Feedback;
+    }
+
+    public void setFeedback(String feedback) {
+        Feedback = feedback;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
+
+    public int getEmployee() {
+        return Employee;
+    }
+
+    public void setEmployee(int employee) {
+        Employee = employee;
+    }
 
     public int getBill_No() {
         return Bill_No;
@@ -46,22 +95,6 @@ public class Complaint {
     public void setSubmitted_by(int submitted_by) {
         Submitted_by = submitted_by;
     }
-
-    /*public int getEmployee() {
-        return Employee;
-    }
-
-    public void setEmployee(int employee) {
-        Employee = employee;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }*/
 
     public boolean isAssigned() {
         return assigned;

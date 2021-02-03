@@ -1,16 +1,16 @@
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#000000"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+
     android:elevation="2dp"
     app:cardCornerRadius="10dp"
     app:cardElevation="10dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#000">
+        android:layout_height="wrap_content">
 
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -31,6 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView"
+            android:layout_marginLeft="20dp"
             android:orientation="horizontal">
 
             <TextView
@@ -51,20 +52,9 @@
                 android:layout_weight="1"
                 android:padding="3dp"
                 android:text="Not assigned"
-                android:textColor="#FFB6C1"
+                android:textColor="#000000"
                 android:textSize="15dp" />
 
-            <Button
-                android:id="@+id/status_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#FFB6C1"
-                android:padding="5dp"
-                android:shadowRadius="10"
-                android:text="change"
-
-                />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -73,41 +63,35 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/status"
+            android:layout_marginLeft="20dp"
             android:orientation="horizontal"
             android:padding="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="5dp"
-
                 android:text="Employee \nInformation:"
                 android:textColor="#ffffff"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/employee_status_textview"
+
+            <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                android:id="@+id/SearchableSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:padding="3dp"
-                android:text="Not assigned"
-                android:textColor="#FFB6C1"
-                android:textSize="15dp" />
-
-            <Button
-                android:id="@+id/employee_status_button"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:background="#FFB6C1"
-                android:padding="5dp"
-                android:shadowRadius="10"
-                android:text="assign"
-
-                />
+                android:textAlignment="center"
+                app:smsp_floatingLabelColor="#1976D2"
+                app:smsp_floatingLabelText="Floating Label Text"
+                app:smsp_hint="Select Employee"
+                app:smsp_hintColor="#000000"
+                app:smsp_itemColor="#512DA8"
+                app:smsp_itemListColor="#7C4DFF"
+                app:smsp_itemListHintBackgroundColor="#000000"
+                app:smsp_itemListHintColor="#FFFFFF"
+                app:smsp_multilineError="false"
+                app:smsp_selectedItemListColor="#FF5252" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -115,6 +99,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/employee_status"
+            android:layout_marginLeft="20dp"
             android:orientation="horizontal">
 
             <TextView
@@ -128,45 +113,44 @@
 
                 android:textStyle="bold" />
 
-            <EditText
+            <TextView
                 android:id="@+id/problem_edittext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="3dp"
                 android:text="Not assigned"
-                android:textColorHighlight="#ffffff"
-                android:textColor="#FFB6C1"
+                android:textColor="#000000"
+                android:textColorHighlight="#000000"
                 android:textSize="15dp" />
 
-            <Button
-                android:id="@+id/problem_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#FFB6C1"
-                android:padding="5dp"
-                android:shadowRadius="10"
-                android:text="change"
-
-                />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
+
         <Button
+            android:id="@+id/save_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/problem"
-            android:text="Save"
-            android:id="@+id/save_details"
-            />
+            android:text="Save" />
+
+        <Button
+            android:id="@+id/done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/problem"
+            android:layout_marginLeft="230dp"
+
+            android:layout_toRightOf="@+id/save_details"
+            android:gravity="right"
+            android:text="Done" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/problem_textview"
-            android:layout_below="@+id/save_details"
-            android:textColor="#ffffff"
-
-            />
-
+            android:layout_below="@+id/done"
+            android:layout_marginLeft="300dp"
+            android:id="@+id/completed"
+            android:text="Not Completed" />
     </RelativeLayout>
-</androidx.cardview.widget.CardView>
+</RelativeLayout>
