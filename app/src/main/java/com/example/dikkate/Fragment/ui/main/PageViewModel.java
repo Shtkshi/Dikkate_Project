@@ -1,4 +1,4 @@
-package com.example.dikkate.ui.main;
+package com.example.dikkate.Fragment.ui.main;
 
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;

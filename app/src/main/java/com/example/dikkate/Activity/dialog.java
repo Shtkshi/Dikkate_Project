@@ -83,7 +83,7 @@ public class dialog extends AppCompatActivity {
             if(count!=1){
                 Status_text.setText("Assigned");
             }
-            Intent intent=new Intent(dialog.this,MainUI.class);
+            Intent intent=new Intent(dialog.this,NavigationDrawerActivity.class);
             startActivity(intent);
             finish();
 

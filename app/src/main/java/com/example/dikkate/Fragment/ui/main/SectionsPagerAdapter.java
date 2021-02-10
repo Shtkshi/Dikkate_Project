@@ -1,4 +1,4 @@
-package com.example.dikkate.ui.main;
+package com.example.dikkate.Fragment.ui.main;
 
 import android.content.Context;
 

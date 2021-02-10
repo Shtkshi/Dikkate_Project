@@ -14,15 +14,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.dikkate.Activity.MainUI;
-import com.example.dikkate.Activity.dialog;
+import com.example.dikkate.Activity.NavigationDrawerActivity;
 import com.example.dikkate.R;
 import com.example.dikkate.RoomDataBase.Complaint;
 import com.example.dikkate.RoomDataBase.Dao;
 import com.example.dikkate.RoomDataBase.database;
 import com.example.dikkate.Util.CustomAdapter;
 import com.example.dikkate.Util.FloatingActionClicked;
-import com.example.dikkate.Util.UpdateCompletion;
 
 import java.util.List;
 
@@ -58,7 +56,8 @@ public class Fragment1 extends Fragment {
         check = dao.Extract(UserId);
         recyclerView.setAdapter(adapter);
 
-        ((MainUI) getActivity()).setFloatingActionClicked(new FloatingActionClicked() {
+ // removing this for now kyuki navigation drawer mai floating action wagerah add krna padega na iske liye, haina? aunty
+        ((NavigationDrawerActivity) getActivity()).setFloatingActionClicked(new FloatingActionClicked() {
             @Override
             public void onFloatingActionClicked() {
                 queries.clear();

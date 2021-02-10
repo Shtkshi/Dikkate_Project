@@ -55,7 +55,7 @@ public class LoginScreen extends AppCompatActivity  {
             if(dao.AlreadyExist(EmailBox.getText().toString())){
                 if(dao.ExtractPassword(EmailBox.getText().toString()).equals(PasswordBox.getText().toString())){
                     int usertype=dao.ServiceType(EmailBox.getText().toString());
-                    Intent intent=new Intent(LoginScreen.this, MainUI.class);
+                    Intent intent=new Intent(LoginScreen.this, NavigationDrawerActivity.class);
                     loggedIn=true;
                     SharedPreferences sharedPreferences=getSharedPreferences("loggedIn",MODE_PRIVATE);
                     sharedPreferences.edit().putBoolean("loggedIn",loggedIn).apply();

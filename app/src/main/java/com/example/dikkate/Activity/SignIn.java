@@ -89,7 +89,7 @@ public class SignIn extends Activity implements AdapterView.OnItemSelectedListen
             SharedPreferences.Editor myEdit=getSharedPreferences("email",MODE_PRIVATE).edit();
             myEdit.putString("email",EmailBox.getText().toString());
             myEdit.apply();
-            Intent intent=new Intent(SignIn.this, MainUI.class);
+            Intent intent=new Intent(SignIn.this, NavigationDrawerActivity.class);
             startActivity(intent);
             finish();
         });
