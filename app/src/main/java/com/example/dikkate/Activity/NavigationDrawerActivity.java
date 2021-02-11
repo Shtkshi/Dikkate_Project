@@ -64,7 +64,6 @@ public class NavigationDrawerActivity extends AppCompatActivity {
         String email = pref.getString("email", "");
         user.setSubmitted_by(dao.UserId(email));
         EditText text = dialogView.findViewById(R.id.add_edittext);
-        int t = dao.UserId(email);
         dialogView.findViewById(R.id.save_add).setOnClickListener(v -> {
             user.setAssigned(false);
             String t1 = text.getText().toString().trim();

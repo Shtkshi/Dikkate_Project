@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.codemybrainsout.onboarder.AhoyOnboarderActivity;
 import com.example.dikkate.R;
 import com.example.dikkate.RoomDataBase.Dao;
 import com.example.dikkate.RoomDataBase.database;
@@ -30,9 +31,9 @@ public class LoginScreen extends AppCompatActivity  {
         setContentView(R.layout.activity_login_screen);
 
         EmailBox= findViewById(R.id.LogInemail);
-        PasswordBox=(EditText)findViewById(R.id.LogInpassword);
-        SignInHyperButton=(TextView) findViewById(R.id.signin);
-        LogIn=(Button)findViewById(R.id.LogInButton);
+        PasswordBox= findViewById(R.id.LogInpassword);
+        SignInHyperButton= findViewById(R.id.signin);
+        LogIn= findViewById(R.id.LogInButton);
 
 
         /*if(EmailBox.getText().toString().isEmpty()){
@@ -51,11 +52,9 @@ public class LoginScreen extends AppCompatActivity  {
 
         Log.d(String.valueOf(dao.AlreadyExist(EmailBox.getText().toString())), "exist");
         LogIn.setOnClickListener(v -> {
-            //Intent i=new Intent(LoginScreen.this,User.class);
             if(dao.AlreadyExist(EmailBox.getText().toString())){
                 if(dao.ExtractPassword(EmailBox.getText().toString()).equals(PasswordBox.getText().toString())){
-                    int usertype=dao.ServiceType(EmailBox.getText().toString());
-                    Intent intent=new Intent(LoginScreen.this, NavigationDrawerActivity.class);
+                    Intent intent=new Intent(LoginScreen.this, AhoyCardView.class);
                     loggedIn=true;
                     SharedPreferences sharedPreferences=getSharedPreferences("loggedIn",MODE_PRIVATE);
                     sharedPreferences.edit().putBoolean("loggedIn",loggedIn).apply();

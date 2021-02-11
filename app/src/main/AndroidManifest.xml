@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.dikkate" >
+    package="com.example.dikkate">
 
     <application
         android:allowBackup="true"
@@ -8,12 +8,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Dikkate" >
+        android:theme="@style/Theme.Dikkate">
+        <activity android:name=".Activity.AhoyCardView"></activity>
         <activity
             android:name=".Activity.NavigationDrawerActivity"
             android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/Theme.Dikkate.NoActionBar" >
-        </activity>
+            android:theme="@style/Theme.Dikkate.NoActionBar"></activity>
         <activity android:name=".Activity.FeedbackPage" />
         <activity android:name=".Fragment.Fragment5" />
         <activity android:name=".Activity.dialog" />
@@ -28,7 +28,7 @@
             android:theme="@style/Theme.Dikkate.NoActionBar" />
         <activity android:name=".Activity.SignIn" />
         <activity android:name=".Activity.LoginScreen" />
-        <activity android:name=".Activity.SplashScreen" >
+        <activity android:name=".Activity.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
