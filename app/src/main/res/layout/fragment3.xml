@@ -1,8 +1,226 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.recyclerview.widget.RecyclerView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragment3">
+    android:background="#F5F5F5"
+    android:fitsSystemWindows="true">
 
-</androidx.recyclerview.widget.RecyclerView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/linera1_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/address_text_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="150dp"
+                android:text="Address"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="2dp"
+                android:src="@drawable/dropdown" />
+        </LinearLayout>
+
+        <com.github.florent37.materialtextfield.MaterialTextField
+            android:id="@+id/edittext_seach"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linera1_search"
+            android:layout_centerHorizontal="true"
+            app:mtf_image="@drawable/problem"
+            app:mtf_labelColor="#666">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Search"
+                android:textColor="#333"
+                android:textSize="10sp" />
+
+        </com.github.florent37.materialtextfield.MaterialTextField>
+
+        <HorizontalScrollView
+            android:id="@+id/hsv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edittext_seach"
+            android:background="#FFFFFF">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <ImageView
+                    android:layout_width="300dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="5dp"
+                    android:padding="9dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/one" />
+
+                <ImageView
+                    android:layout_width="300dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="5dp"
+                    android:padding="9dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/two" />
+
+                <ImageView
+                    android:layout_width="300dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="5dp"
+                    android:padding="9dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/three" />
+
+                <ImageView
+                    android:layout_width="300dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="5dp"
+                    android:padding="9dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/four" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <ImageView
+            android:id="@+id/image_add"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@id/hsv_search"
+            android:src="@drawable/advertisment_one" />
+
+        <GridView
+            android:id="@+id/gridview"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:layout_below="@+id/image_add"
+            android:nestedScrollingEnabled="false"
+            android:numColumns="4" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_below="@id/gridview"
+            android:layout_height="500dp"
+            android:background="#FFFFFF"
+            android:id="@+id/pest_linear_search"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Cleaning and Pest Control"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="15sp"
+                android:text="Remove hard strains and more"
+                android:textSize="15sp"
+
+                />
+
+            <GridView
+                android:id="@+id/gridview_2_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:horizontalSpacing="20dp"
+                android:numColumns="2"
+                android:verticalSpacing="20dp" />
+
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View All Services"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="20sp"
+                android:textSize="15dp"
+                android:id="@+id/buttonone"
+                android:textColor="#4D71A3"
+                android:outlineAmbientShadowColor="#4D71A3"
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_below="@id/pest_linear_search"
+            android:layout_height="500dp"
+            android:background="#FFFFFF"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Cleaning and Pest Control"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="15sp"
+                android:text="Remove hard strains and more"
+                android:textSize="15sp"
+
+                />
+
+            <GridView
+                android:id="@+id/gridview_3_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:horizontalSpacing="20dp"
+                android:numColumns="2"
+                android:verticalSpacing="20dp" />
+
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View All Services"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="20sp"
+                android:textSize="15dp"
+                android:id="@+id/buttontwo"
+                android:textColor="#4D71A3"
+                android:outlineAmbientShadowColor="#4D71A3"
+
+                />
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+</ScrollView>

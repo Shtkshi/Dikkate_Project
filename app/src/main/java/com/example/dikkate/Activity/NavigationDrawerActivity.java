@@ -1,9 +1,11 @@
 package com.example.dikkate.Activity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -49,6 +51,18 @@ public class NavigationDrawerActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        navigationView.getMenu().findItem(R.id.LogOut).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                SharedPreferences.Editor myEdit=getSharedPreferences("email",MODE_PRIVATE).edit();
+                myEdit.putBoolean("loggedIn",false);
+                myEdit.apply();
+                Intent intent=new Intent(NavigationDrawerActivity.this,LoginScreen.class);
+                startActivity(intent);
+                finish();
+                return true;
+            }
+        });
     }
     FloatingActionClicked floatingActionClicked;
 

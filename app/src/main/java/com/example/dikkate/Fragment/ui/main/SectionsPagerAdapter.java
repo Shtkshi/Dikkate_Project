@@ -15,6 +15,8 @@ import com.example.dikkate.Fragment.Fragment4;
 import com.example.dikkate.Fragment.Fragment5;
 import com.example.dikkate.R;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
  * one of the sections/tabs/pages.
@@ -30,6 +32,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         mContext = context;
     }
 
+    @NotNull
     @Override
     public Fragment getItem(int position) {
 

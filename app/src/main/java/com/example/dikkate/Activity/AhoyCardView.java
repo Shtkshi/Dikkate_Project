@@ -51,9 +51,7 @@ public class AhoyCardView extends AhoyOnboarderActivity {
         setGradientBackground();
 
         //set the button style you created
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            setFinishButtonDrawableStyle(ContextCompat.getDrawable(this, R.drawable.rounded_button));
-        }
+        setFinishButtonDrawableStyle(ContextCompat.getDrawable(this, R.drawable.rounded_button));
 
         Typeface face = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
         setFont(face);
@@ -64,7 +62,7 @@ public class AhoyCardView extends AhoyOnboarderActivity {
     @Override
     public void onFinishButtonPressed() {
         Toast.makeText(this, "Finish Pressed", Toast.LENGTH_SHORT).show();
-        Intent intent=new Intent(AhoyCardView.this,NavigationDrawerActivity.class);
+        Intent intent=new Intent(AhoyCardView.this,LoginScreen.class);
         startActivity(intent);
         finish();
     }

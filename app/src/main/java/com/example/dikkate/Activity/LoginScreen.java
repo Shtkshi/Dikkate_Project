@@ -54,9 +54,9 @@ public class LoginScreen extends AppCompatActivity  {
         LogIn.setOnClickListener(v -> {
             if(dao.AlreadyExist(EmailBox.getText().toString())){
                 if(dao.ExtractPassword(EmailBox.getText().toString()).equals(PasswordBox.getText().toString())){
-                    Intent intent=new Intent(LoginScreen.this, AhoyCardView.class);
+                    Intent intent=new Intent(LoginScreen.this, NavigationDrawerActivity.class);
                     loggedIn=true;
-                    SharedPreferences sharedPreferences=getSharedPreferences("loggedIn",MODE_PRIVATE);
+                    SharedPreferences sharedPreferences=getSharedPreferences("email",MODE_PRIVATE);
                     sharedPreferences.edit().putBoolean("loggedIn",loggedIn).apply();
                     sharedPreferences.edit().putInt("UserId",dao.UserId(EmailBox.getText().toString())).apply();
                     startActivity(intent);

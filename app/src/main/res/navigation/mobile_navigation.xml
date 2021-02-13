@@ -22,4 +22,10 @@
         android:name="com.example.dikkate.Fragment.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/LogOut"
+        android:name="com.example.dikkate.Fragment.ui.logOut.LogOut"
+        android:label="Log Out"
+        />
+
 </navigation>

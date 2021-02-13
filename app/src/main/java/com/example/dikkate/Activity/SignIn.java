@@ -70,7 +70,7 @@ public class SignIn extends Activity implements AdapterView.OnItemSelectedListen
                 Toast.makeText(getApplicationContext(),"Manditory fields. Please fill",Toast.LENGTH_SHORT).show();
                 return;
             }
-            TotalUsers data=new TotalUsers(); // ese set krne ki bajae youcan also use constructors
+            TotalUsers data=new TotalUsers();
             data.setName(NameBox.getText().toString());
             data.setAddress(AddressBox.getText().toString());
             data.setEmail(EmailBox.getText().toString());
@@ -88,6 +88,8 @@ public class SignIn extends Activity implements AdapterView.OnItemSelectedListen
             }
             SharedPreferences.Editor myEdit=getSharedPreferences("email",MODE_PRIVATE).edit();
             myEdit.putString("email",EmailBox.getText().toString());
+            myEdit.apply();
+            myEdit.putBoolean("loggedIn",true);
             myEdit.apply();
             Intent intent=new Intent(SignIn.this, NavigationDrawerActivity.class);
             startActivity(intent);
