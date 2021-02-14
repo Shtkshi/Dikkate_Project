@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dikkate">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,11 +12,44 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Dikkate">
-        <activity android:name=".Activity.AhoyCardView"></activity>
+        <activity android:name=".Activity.CartPage1"></activity>
+        <activity
+            android:name=".Activity.Services_Activities.Plumbers.Plumbers"
+            android:label="@string/title_activity_plumbers"
+            android:theme="@style/Theme.Dikkate.NoActionBar" />
+        <activity
+            android:name=".Activity.Services_Activities.PestControls.PestControls"
+            android:label="@string/title_activity_pest_controls"
+            android:theme="@style/Theme.Dikkate.NoActionBar" />
+        <activity
+            android:name=".Activity.Services_Activities.Painters.Painters"
+            android:label="@string/title_activity_painters"
+            android:theme="@style/Theme.Dikkate.NoActionBar" />
+        <activity
+            android:name=".Activity.Services_Activities.Electricians.ELectricians"
+            android:label="@string/title_activity_e_lectricians"
+            android:theme="@style/Theme.Dikkate.NoActionBar" />
+        <activity
+            android:name=".Activity.Services_Activities.Cleaning_Disinfection.Cleaning_Disinfection"
+            android:label="@string/title_activity_cleaning__disinfection"
+            android:theme="@style/Theme.Dikkate.NoActionBar" />
+        <activity
+            android:name=".Activity.Services_Activities.Carpenters.Carpenters"
+            android:label="@string/title_activity_carpenters"
+            android:theme="@style/Theme.Dikkate.NoActionBar" />
+        <activity
+            android:name=".Activity.Services_Activities.Appliance_Repair.Appliance"
+            android:label="@string/title_activity_appliance"
+            android:theme="@style/Theme.Dikkate.NoActionBar" />
+        <activity
+            android:name=".Activity.Services_Activities.Ac_Service_and_Repair.AC"
+            android:label="@string/title_activity_a_c"
+            android:theme="@style/Theme.Dikkate.NoActionBar" />
+        <activity android:name=".Activity.AhoyCardView" />
         <activity
             android:name=".Activity.NavigationDrawerActivity"
             android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/Theme.Dikkate.NoActionBar"></activity>
+            android:theme="@style/Theme.Dikkate.NoActionBar" />
         <activity android:name=".Activity.FeedbackPage" />
         <activity android:name=".Fragment.Fragment5" />
         <activity android:name=".Activity.dialog" />

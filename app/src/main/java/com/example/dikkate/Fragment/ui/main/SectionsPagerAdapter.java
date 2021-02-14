@@ -39,13 +39,13 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         Fragment fragment=null;
         switch (position){
             case 0:
-                fragment =new Fragment1();
+                fragment =new Fragment3();
                 break;
             case 1:
                 fragment=new Fragment2();
                 break;
             case 2:
-                fragment=new Fragment3();
+                fragment=new Fragment1();
                 break;
             case 3:
                 fragment=new Fragment4();

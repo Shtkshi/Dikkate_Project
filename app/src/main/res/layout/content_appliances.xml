@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Activity.Services_Activities.Ac_Service_and_Repair.AC"
+    tools:showIn="@layout/activity_appliance">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:cardCornerRadius="30dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,16 +64,16 @@
                 </LinearLayout>
 
                 <Button
-                    android:layout_width="60dp"
+                    android:id="@+id/add_Appliances"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="35dp"
+                    android:layout_marginTop="30dp"
                     android:layout_weight="0"
-                    android:outlineAmbientShadowColor="#4D71A3"
-                    android:shadowColor="#000000"
-                    android:shadowRadius="10"
                     android:text="Add+"
                     android:textColor="#4D71A3"
-                    android:textSize="10dp" />
+                    android:textSize="10dp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -86,20 +93,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="100dp"
                     android:layout_marginTop="30dp"
-                    android:text="View Details"
-                    android:textStyle="bold"
-                    android:textSize="20dp"
                     android:layout_marginBottom="50dp"
-                    android:textColor="#4D71A3" />
-
-
+                    android:text="View Details"
+                    android:textColor="#4D71A3"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
             </LinearLayout>
-
 
         </LinearLayout>
 
-
     </androidx.cardview.widget.CardView>
 
-
-</LinearLayout>
+</androidx.core.widget.NestedScrollView>

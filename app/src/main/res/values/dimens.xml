@@ -11,4 +11,6 @@
     <dimen name="activity_half_margin">8dp</dimen>
     <dimen name="indicator_size">8dp</dimen>
     <dimen name="section_image_item">128dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 </resources>

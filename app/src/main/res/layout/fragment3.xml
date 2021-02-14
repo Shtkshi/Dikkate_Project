@@ -102,6 +102,7 @@
             android:id="@+id/image_add"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:layout_marginTop="-10dp"
             android:layout_below="@id/hsv_search"
             android:src="@drawable/advertisment_one" />
 
@@ -109,6 +110,7 @@
             android:id="@+id/gridview"
             android:layout_width="match_parent"
             android:layout_height="280dp"
+            android:layout_marginTop="-10dp"
             android:layout_below="@+id/image_add"
             android:nestedScrollingEnabled="false"
             android:numColumns="4" />
@@ -119,7 +121,7 @@
             android:layout_height="500dp"
             android:background="#FFFFFF"
             android:id="@+id/pest_linear_search"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="-7dp"
             android:orientation="vertical">
 
             <TextView
@@ -171,7 +173,8 @@
             android:layout_below="@id/pest_linear_search"
             android:layout_height="500dp"
             android:background="#FFFFFF"
-            android:layout_marginTop="20dp"
+            android:id="@+id/appliance_linear_search"
+            android:layout_marginTop="30dp"
             android:orientation="vertical">
 
             <TextView
@@ -218,6 +221,38 @@
                 />
         </LinearLayout>
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appliance_linear_search"
+            android:src="@drawable/referandearn"
+            android:id="@+id/refer_and_earn"
+            android:layout_marginTop="-20dp"
+            />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/refer_and_earn"
+            android:src="@drawable/govtofindia"
+            android:id="@+id/govt_of_india"
+            android:layout_marginTop="-100dp"
+            android:layout_marginBottom="-50dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="#000000"
+            android:text="Find professionals certified by Govt. of India \n under skill India Mission"
+            android:textColor="#ffffff"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_below="@+id/govt_of_india"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:layout_marginTop="-40dp"
+            android:layout_marginBottom="20dp"
+            />
 
 
     </RelativeLayout>

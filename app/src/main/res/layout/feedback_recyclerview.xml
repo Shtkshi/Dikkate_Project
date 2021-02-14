@@ -37,9 +37,9 @@
         android:layout_width="24dip"
         android:layout_height="24dip"
         android:src="@drawable/remove"
-        app:cb_color="#99CC00"
+        android:background="#99CC00"
         android:id="@+id/cancel"
-        app:cb_pressedRingWidth="8dip" />
+         />
 
 
 </LinearLayout>
