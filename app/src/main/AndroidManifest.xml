@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dikkate">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,7 +14,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Dikkate">
-        <activity android:name=".Activity.CartPage1"></activity>
+        <activity android:name=".Activity.Payment"></activity>
+        <activity android:name=".Activity.Phone" />
+        <activity android:name=".Activity.Address" />
+        <activity android:name=".Activity.viewDetails" />
+        <activity
+            android:name=".Activity.CartPage1"
+            android:label="@string/title_activity_cart_page1"
+            android:theme="@style/Theme.Dikkate.NoActionBar" />
         <activity
             android:name=".Activity.Services_Activities.Plumbers.Plumbers"
             android:label="@string/title_activity_plumbers"

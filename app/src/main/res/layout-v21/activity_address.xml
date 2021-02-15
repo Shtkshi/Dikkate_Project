@@ -1,165 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activity.Payment">
+    tools:context=".Activity.Address">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:background="#000000"
-        android:layout_height="wrap_content">
-    <AutoCompleteTextView
-        android:id="@+id/auto"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:layout_marginTop="20dp"
-        android:textColorHint="#ffffff"
-        android:textColor="#ffffff"
-        android:hint="Enter building/society/landmark/locality" />
+        android:background="#000000"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/response"
-        android:textIsSelectable="true"
-        android:layout_marginTop="40dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <AutoCompleteTextView
+            android:id="@+id/auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Enter building/society/landmark/locality"
+            android:maxLines="1"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff" />
+
+        <TextView
+            android:id="@+id/response"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:textIsSelectable="true" />
     </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:id="@+id/header"
-            android:orientation="vertical"
-            android:background="@color/colorPrimary"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            android:paddingBottom="@dimen/activity_vertical_margin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin">
 
             <ImageView
-                android:layout_gravity="center"
-                android:src="@drawable/get_location"
                 android:layout_width="70dp"
-                android:layout_height="70dp" />
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:src="@drawable/get_location" />
 
             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/activity_horizontal_margin"
                 android:gravity="center"
-                android:textColor="#ffffff"
-                android:textSize="16sp"
                 android:paddingLeft="35dp"
                 android:paddingRight="35dp"
                 android:text="Welcome! Where should we deliver to?"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
 
         </LinearLayout>
 
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <androidx.cardview.widget.CardView
-            android:elevation="4dp"
-            android:layout_margin="@dimen/activity_horizontal_margin"
-            android:layout_below="@+id/header"
-            android:id="@+id/card_view"
-            android:layout_gravity="center"
+            android:id="@+id/Cart_Address"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:cardCornerRadius="1dp">
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:background="#000000"
+            android:elevation="30dp">
 
-            <RelativeLayout
+            <LinearLayout
+                android:id="@+id/CartLinear_Address"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="#000000">
 
+                <TextView
+                    android:id="@+id/no_of_orders_Address"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:text="1"
+                    android:textColor="#ffffff"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="160dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Continue"
+                    android:textColor="#ffffff"
+                    android:textSize="18dp"
 
-                <RelativeLayout
-                    android:minHeight="120dp"
-                    android:id="@+id/rlAddress"
-                    android:layout_alignParentTop="true"
-                    android:padding="@dimen/activity_horizontal_margin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/tvAddress"
-                        android:text=""
-                        android:visibility="gone"
-                        android:layout_alignParentLeft="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:layout_centerInParent="true"
-                        android:id="@+id/tvEmpty"
-                        android:text="Tap pick location to get your address"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_below="@+id/rlAddress"
-                    android:id="@+id/divider"
-                    android:layout_width="match_parent"
-                    android:layout_height="2px"
-                    android:background="#E1E1E1"
                     />
-
-                <RelativeLayout
-                    android:id="@+id/rlPickLocation"
-                    android:layout_below="@id/divider"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:layout_centerInParent="true"
-                        android:padding="@dimen/items_inbetween"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:src="@drawable/ic_pick"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp" />
-
-                        <TextView
-                            android:layout_gravity="center_vertical"
-                            android:id="@+id/textView"
-                            android:textSize="18dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/items_inbetween"
-                            android:text="PICK LOCATION"
-                            android:textColor="@color/colorPrimary" />
-
-                    </LinearLayout>
-
-                </RelativeLayout>
-
-            </RelativeLayout>
-
+            </LinearLayout>
 
 
         </androidx.cardview.widget.CardView>
 
-        <Button
-            android:enabled="false"
-            android:layout_margin="@dimen/activity_horizontal_margin"
-            style="@style/proceedButtonStyle"
-            android:id="@+id/btnLocation"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:text="PROCEED" />
-
-
-
-
-
     </RelativeLayout>
+
 
 </LinearLayout>

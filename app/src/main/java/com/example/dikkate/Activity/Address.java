@@ -2,9 +2,10 @@ package com.example.dikkate.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
+import androidx.cardview.widget.CardView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,10 +14,6 @@ import android.widget.TextView;
 
 import com.example.dikkate.R;
 import com.example.dikkate.Util.AutoCompleteAdapter;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.internal.ConnectionCallbacks;
-import com.google.android.gms.common.api.internal.OnConnectionFailedListener;
-import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.libraries.places.api.Places;
@@ -26,12 +23,11 @@ import com.google.android.libraries.places.api.net.FetchPlaceRequest;
 import com.google.android.libraries.places.api.net.FetchPlaceResponse;
 import com.google.android.libraries.places.api.net.PlacesClient;
 
-import java.sql.Connection;
 import java.util.Arrays;
 import java.util.List;
 
 
-public class Payment extends AppCompatActivity {
+public class Address extends AppCompatActivity {
     AutoCompleteTextView autoCompleteTextView;
     AutoCompleteAdapter adapter;
     TextView responseView;
@@ -41,6 +37,18 @@ public class Payment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address);
+
+
+
+        CardView cardView=(CardView) findViewById(R.id.Cart_Address);
+
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Address.this,Phone.class);
+                startActivity(intent);
+            }
+        });
 
         responseView = findViewById(R.id.response);
 
@@ -57,6 +65,7 @@ public class Payment extends AppCompatActivity {
 
         placesClient = Places.createClient(this);
         initAutoCompleteTextView();
+
 
 
 

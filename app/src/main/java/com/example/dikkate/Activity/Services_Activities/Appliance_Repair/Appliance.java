@@ -53,6 +53,7 @@ public class Appliance extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(Appliance.this, CartPage1.class);
                 startActivity(intent);
+
             }
         });
     }
