@@ -1,28 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zerobranch.layout.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_margin="5dp"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="20dp">
+    android:id="@+id/swipe_layout"
+    app:draggedItem="@id/drag_item"
+    app:rightItem="@id/right_view"
+    app:swipeDirection="left">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/right_view"
+        android:layout_width="90dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:visibility="gone"
+        android:background="#8B0000"
+        android:gravity="center"
+        android:paddingEnd="24dp"
+        android:paddingStart="24dp"
+        android:layout_margin="5dp"
+        android:src="@drawable/ic_delete"/>
+
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:id="@+id/drag_item"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
             <ImageView
+                android:id="@+id/recycler_image_cart1"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
-                android:id="@+id/recycler_image_cart1"
                 android:src="@drawable/air" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -33,28 +56,31 @@
                     android:textColor="#000000"
                     android:textSize="17dp"
                     android:textStyle="bold" />
+
                 <TextView
+                    android:id="@+id/recycler_date_cart1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/recycler_date_cart1"
                     android:text="date" />
 
                 <TextView
-                    android:layout_width="match_parent"
                     android:id="@+id/recycler_time_cart1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Time" />
+
                 <TextView
+                    android:id="@+id/recycler_ViewDetails_cart1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/recycler_ViewDetails_cart1"
                     android:text="View Details"
-                    android:textSize="19dp"
-                    android:textColor="#228B22" />
+                    android:textColor="#228B22"
+                    android:textSize="19dp" />
 
             </LinearLayout>
 
         </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 
-</androidx.cardview.widget.CardView>
+</com.zerobranch.layout.SwipeLayout>

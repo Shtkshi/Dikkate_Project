@@ -7,12 +7,14 @@
     android:background="#F5F5F5"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Activity.Services_Activities.Ac_Service_and_Repair.AC"
+    android:layout_marginBottom="100dp"
     tools:showIn="@layout/activity_cart_page1">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Recycler_Cart1"
+
         />
 
 

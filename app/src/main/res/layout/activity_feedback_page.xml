@@ -42,14 +42,6 @@
                 android:padding="10dp"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:padding="10dp"
-                android:id="@+id/feedback_done"
-                android:text="done"
-                android:textSize="10dp"
-                />
         </LinearLayout>
 
         <Button

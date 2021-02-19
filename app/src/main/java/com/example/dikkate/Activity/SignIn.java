@@ -78,6 +78,10 @@ public class SignIn extends Activity implements AdapterView.OnItemSelectedListen
             data.setPhoneNo(ContactNoBox.getText().toString());
             data.setServiceID(roletype);
             data.setRole(userstype[roletype]);
+            SharedPreferences sharedPreferences=getSharedPreferences("email",MODE_PRIVATE);
+            sharedPreferences.edit().putString("email",EmailBox.getText().toString());
+            sharedPreferences.edit().putInt("UserId",dao.UserId(EmailBox.getText().toString())).apply();
+
             dao.EnterData(data);
 
             if(dobBox.getText().toString().isEmpty()){

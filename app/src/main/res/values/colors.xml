@@ -16,4 +16,8 @@
     <color name="solid_three">#ffce00</color>
 
 
+    <color name="colorActiveItem">#4400a59c</color>
+    <color name="colorActiveItemHorizontal">#44dd310c</color>
+
+
 </resources>

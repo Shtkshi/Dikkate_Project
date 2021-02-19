@@ -60,6 +60,7 @@ public class LoginScreen extends AppCompatActivity  {
                     sharedPreferences.edit().putBoolean("loggedIn",loggedIn).apply();
                     sharedPreferences.edit().putInt("UserId",dao.UserId(EmailBox.getText().toString())).apply();
                     startActivity(intent);
+                    int user=dao.UserId(EmailBox.getText().toString());
                     finish();
                 }
                 else{

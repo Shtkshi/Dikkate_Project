@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+        <include layout="@layout/timeline_item"/>
+
+    <com.repsly.library.timelineview.TimelineView
+        android:id="@+id/timeline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:lineColor="#000000"
+        app:lineOrientation="horizontal"
+        app:lineSize="3dp"
+        app:markerActive="false"
+        app:markerActiveColor="@color/colorActiveItemHorizontal"
+        app:markerActiveStrokeWidth="8dp"
+        app:markerColor="#000000"
+        app:markerSize="20dp"
+        app:markerStrokeWidth="2dp"
+        app:markerTextColor="@android:color/white"
+        app:markerTextSize="10sp"/>
+
+</LinearLayout>

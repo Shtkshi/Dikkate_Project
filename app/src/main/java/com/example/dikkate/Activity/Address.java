@@ -6,6 +6,7 @@ import androidx.cardview.widget.CardView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,6 +14,8 @@ import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 
 import com.example.dikkate.R;
+import com.example.dikkate.RoomDataBase.Dao;
+import com.example.dikkate.RoomDataBase.database;
 import com.example.dikkate.Util.AutoCompleteAdapter;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -37,6 +40,15 @@ public class Address extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address);
+
+
+        //Cart
+        SharedPreferences sharedPreferences=getSharedPreferences("email",MODE_PRIVATE);
+        int UserID=sharedPreferences.getInt("UserId",-1);
+        Dao dao= database.getInstance(getApplicationContext()).dao();
+        TextView NoOfOrders=findViewById(R.id.no_of_orders_Address);
+        NoOfOrders.setText(String.valueOf(dao.NoOfOrders(UserID,1)));
+
 
 
 

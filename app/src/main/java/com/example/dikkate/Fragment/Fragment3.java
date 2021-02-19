@@ -1,6 +1,8 @@
 package com.example.dikkate.Fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Layout;
@@ -10,11 +12,14 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import com.example.dikkate.Activity.CartPage1;
 import com.example.dikkate.Activity.Services_Activities.Ac_Service_and_Repair.AC;
 import com.example.dikkate.Activity.Services_Activities.Appliance_Repair.Appliance;
 import com.example.dikkate.Activity.Services_Activities.Carpenters.Carpenters;
@@ -24,6 +29,8 @@ import com.example.dikkate.Activity.Services_Activities.Painters.Painters;
 import com.example.dikkate.Activity.Services_Activities.PestControls.PestControls;
 import com.example.dikkate.Activity.Services_Activities.Plumbers.Plumbers;
 import com.example.dikkate.R;
+import com.example.dikkate.RoomDataBase.Dao;
+import com.example.dikkate.RoomDataBase.database;
 import com.example.dikkate.Util.Image;
 
 
@@ -38,6 +45,7 @@ public class Fragment3 extends Fragment {
 
 
     }
+    Dao dao;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -53,6 +61,56 @@ public class Fragment3 extends Fragment {
         button2.setBackgroundColor(Color.parseColor("#CAE1FF"));
 
 
+        //Cart
+        SharedPreferences sharedPreferences=this.getActivity().getSharedPreferences("email", Context.MODE_PRIVATE);
+        int UserId=sharedPreferences.getInt("UserId",-1);
+        dao= database.getInstance(getContext()).dao();
+        int Cart=dao.NoOfOrders(UserId,1);
+        CardView CartView=view.findViewById(R.id.Cart_Main);
+        if(Cart==0){
+            CartView.setVisibility(View.INVISIBLE);
+        }
+        else{
+            CartView.setVisibility(View.VISIBLE);
+            TextView NoOfOrderDisplay=view.findViewById(R.id.no_of_orders_main);
+            NoOfOrderDisplay.setText(String.valueOf(Cart));
+
+            CartView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(getContext(), CartPage1.class);
+                    startActivity(intent);
+                }
+            });
+        }
+
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        SharedPreferences sharedPreferences=this.getActivity().getSharedPreferences("email", Context.MODE_PRIVATE);
+        int UserId=sharedPreferences.getInt("UserId",-1);
+        dao= database.getInstance(getContext()).dao();
+        int Cart=dao.NoOfOrders(UserId,1);
+        CardView CartView=getActivity().findViewById(R.id.Cart_Main);
+        if(Cart==0){
+            CartView.setVisibility(View.INVISIBLE);
+        }
+        else{
+            CartView.setVisibility(View.VISIBLE);
+            TextView NoOfOrderDisplay=getActivity().findViewById(R.id.no_of_orders_main);
+            NoOfOrderDisplay.setText(String.valueOf(Cart));
+
+            CartView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(getContext(), CartPage1.class);
+                    startActivity(intent);
+                }
+            });
+        }
     }
 
     void CallingGridView_Appliances(View view) {

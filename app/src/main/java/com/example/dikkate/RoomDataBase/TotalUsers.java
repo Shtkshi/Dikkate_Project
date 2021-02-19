@@ -15,22 +15,22 @@ public class TotalUsers {
     }
 
     @PrimaryKey(autoGenerate = true)
-    private int i=0;
+    private int i = 0;
     @ColumnInfo(name = "Name")
     private String Name;
     @ColumnInfo(name = "tele no")
     private String PhoneNo;
-    @ColumnInfo(name="Address")
+    @ColumnInfo(name = "Address")
     private String Address;
-    @ColumnInfo(name="Date of Birth")
+    @ColumnInfo(name = "Date of Birth")
     private String dob;
-    @ColumnInfo(name="Email")
+    @ColumnInfo(name = "Email")
     private String Email;
     @ColumnInfo(name = "Password")
     private String Password;
     @ColumnInfo(name = "role")
     private String Role;
-    @ColumnInfo(name="ServiceType")
+    @ColumnInfo(name = "ServiceType")
     private int ServiceID;
 
     public String getRole() {
@@ -56,7 +56,6 @@ public class TotalUsers {
     public void setEmail(String email) {
         Email = email;
     }
-
 
 
     public String getName() {

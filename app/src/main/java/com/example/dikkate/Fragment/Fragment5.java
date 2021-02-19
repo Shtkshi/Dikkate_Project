@@ -13,15 +13,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.dikkate.RoomDataBase.Catergory_User_mapping;
 import com.example.dikkate.RoomDataBase.Complaint;
 import com.example.dikkate.RoomDataBase.Dao;
 import com.example.dikkate.RoomDataBase.database;
 
 import com.example.dikkate.R;
 
+import com.example.dikkate.Util.CartAdapter;
 import com.example.dikkate.Util.FeedbackAdapter;
 
 import java.util.List;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class Fragment5 extends Fragment {
 
@@ -32,22 +36,29 @@ public class Fragment5 extends Fragment {
         return inflater.inflate(R.layout.fragment5,container,false);
     }
 
-    RecyclerView recyclerView;
-    FeedbackAdapter adapter;
+    int UserID;
     Dao dao;
-    List<Complaint> feedbacks;
-    
+    List<Catergory_User_mapping>arr;
+
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        dao = database.getInstance(getContext()).dao();
-        feedbacks=dao.getComplaintTotal();
-        SharedPreferences sharedPreferences=this.getActivity().getSharedPreferences("Bill",Context.MODE_PRIVATE);
-        int Bill=sharedPreferences.getInt("bill",-1);
-        recyclerView=view.findViewById(R.id.feedback_total);
+        //CartItems
+        SharedPreferences sharedPreferences=getContext().getSharedPreferences("email",MODE_PRIVATE);
+        UserID=sharedPreferences.getInt("UserId",-1);
+
+        dao= database.getInstance(getContext()).dao();
+        arr=dao.CartItems(UserID,3);
+
+
+        //RecyclerView
+        RecyclerView recyclerView=view.findViewById(R.id.Recycler_Cart_fragment5);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
-        adapter=new FeedbackAdapter(getContext(),feedbacks,dao,Bill);
-        recyclerView.setAdapter(adapter);
+        CartAdapter cartAdapter=new CartAdapter(getContext(),arr,dao,UserID);
+        recyclerView.setAdapter(cartAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
 
     }
 
