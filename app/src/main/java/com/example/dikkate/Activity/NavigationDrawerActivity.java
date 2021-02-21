@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -26,7 +27,6 @@ import com.example.dikkate.RoomDataBase.database;
 import com.example.dikkate.Util.FloatingActionClicked;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 
 public class NavigationDrawerActivity extends AppCompatActivity {
 
@@ -54,17 +54,28 @@ public class NavigationDrawerActivity extends AppCompatActivity {
         navigationView.getMenu().findItem(R.id.LogOut).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                SharedPreferences.Editor myEdit=getSharedPreferences("email",MODE_PRIVATE).edit();
-                myEdit.putBoolean("loggedIn",false);
+                SharedPreferences.Editor myEdit = getSharedPreferences("email", MODE_PRIVATE).edit();
+                myEdit.putBoolean("loggedIn", false);
                 myEdit.apply();
-                Intent intent=new Intent(NavigationDrawerActivity.this,LoginScreen.class);
+                Intent intent = new Intent(NavigationDrawerActivity.this, LoginScreen.class);
                 startActivity(intent);
                 finish();
                 return true;
             }
         });
+        Dao dao = database.getInstance(getApplicationContext()).dao();
+        TextView Profile_Name = findViewById(R.id.Profile_Name);
+        TextView Profile_Email = findViewById(R.id.Profile_Email);
+        SharedPreferences pref = getSharedPreferences("email", MODE_PRIVATE);
+        String email = pref.getString("email", "");
+        int UserId = (dao.UserId(email));
+        //Profile_Email.setText(email);
+        //Profile_Name.setText(dao.EmployeeAssignedName(UserId));
+
     }
+
     FloatingActionClicked floatingActionClicked;
+
 
     public void CreateDialog() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(NavigationDrawerActivity.this);

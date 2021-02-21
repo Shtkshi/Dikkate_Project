@@ -6,11 +6,15 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import com.example.dikkate.Activity.CartPage1;
+import com.example.dikkate.Activity.FeedbackPage;
 import com.example.dikkate.Activity.Services_Activities.Appliance_Repair.Appliance;
 import com.example.dikkate.Activity.Services_Activities.Appliance_Repair.SliderAdapter;
+import com.example.dikkate.Activity.ViewDetailsCart;
 import com.example.dikkate.RoomDataBase.Catergory_User_mapping;
 import com.example.dikkate.RoomDataBase.Dao;
 import com.example.dikkate.RoomDataBase.database;
+import com.example.dikkate.Util.CartAdapter;
+import com.example.dikkate.Util.FeedbackAdapter;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -18,6 +22,8 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +34,7 @@ import com.example.dikkate.R;
 import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static android.view.View.INVISIBLE;
 
@@ -44,6 +51,7 @@ public class AC extends AppCompatActivity {
         toolBarLayout.setTitle("AC and Repair");
 
         dao = database.getInstance(getApplicationContext()).dao();
+
 
         //UserId
         SharedPreferences sharedPreferences = getSharedPreferences("email", MODE_PRIVATE);
@@ -77,9 +85,24 @@ public class AC extends AppCompatActivity {
 
         CartService();
 
+        //FeedbackStars
+        Feedback();
+        TextView AverageStars=findViewById(R.id.Stars_average_AC);
+        AverageStars.setText(String.valueOf(dao.Average_Feedback(1,0)));
 
+        TextView AverageStars2=findViewById(R.id.Stars_average);
+        AverageStars2.setText(String.valueOf(dao.Average_Feedback(1,0)));
 
+        // view details
+        TextView viewDetails=findViewById(R.id.AC_ViewDetails);
+        viewDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(AC.this, ViewDetailsCart.class);
+                startActivity(intent);
 
+            }
+        });
     }
 
 
@@ -168,6 +191,20 @@ public class AC extends AppCompatActivity {
 
         // to start autocycle below method is used.
         sliderView.startAutoCycle();
+
+    }
+
+    RecyclerView RecyclerViewFeedback;
+    FeedbackAdapter feedbackAdapter;
+    List<Catergory_User_mapping>feedbacks;
+    private void Feedback(){
+        feedbacks=dao.Feedbacks(1,0);
+        RecyclerViewFeedback=(RecyclerView)findViewById(R.id.recyclefeedback);
+        RecyclerViewFeedback.setLayoutManager(new LinearLayoutManager(AC.this,LinearLayoutManager.VERTICAL,false));
+        feedbackAdapter=new FeedbackAdapter(AC.this,feedbacks,dao);
+        RecyclerViewFeedback.setAdapter(feedbackAdapter);
+        RecyclerViewFeedback.setLayoutManager(new LinearLayoutManager(this));
+
 
     }
 }

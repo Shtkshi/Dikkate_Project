@@ -69,6 +69,7 @@
                     android:layout_margin="10dp">
 
                     <ImageView
+                        android:id="@+id/Sofa"
                         android:layout_width="300dp"
                         android:layout_height="150dp"
                         android:layout_margin="5dp"
@@ -77,6 +78,7 @@
                         android:src="@drawable/one" />
 
                     <ImageView
+                        android:id="@+id/Bathroom"
                         android:layout_width="300dp"
                         android:layout_height="150dp"
                         android:layout_margin="5dp"
@@ -85,6 +87,7 @@
                         android:src="@drawable/two" />
 
                     <ImageView
+                        android:id="@+id/Gyser"
                         android:layout_width="300dp"
                         android:layout_height="150dp"
                         android:layout_margin="5dp"
@@ -93,6 +96,7 @@
                         android:src="@drawable/three" />
 
                     <ImageView
+                        android:id="@+id/Painting"
                         android:layout_width="300dp"
                         android:layout_height="150dp"
                         android:layout_margin="5dp"
@@ -110,20 +114,41 @@
                 android:layout_marginTop="-10dp"
                 android:src="@drawable/advertisment_one" />
 
-            <GridView
-                android:id="@+id/gridview"
+            <LinearLayout
+                android:id="@+id/gridviewAdapter"
                 android:layout_width="match_parent"
-                android:layout_height="280dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/image_add"
-                android:layout_marginTop="-10dp"
-                android:nestedScrollingEnabled="false"
-                android:numColumns="4" />
+                android:background="#ffffff"
+                android:orientation="vertical">
+
+                <GridView
+                    android:id="@+id/gridview"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:layout_marginTop="-10dp"
+                    android:nestedScrollingEnabled="false"
+                    android:numColumns="4" />
+
+                <Button
+                    android:id="@+id/buttonAll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="30sp"
+                    android:outlineAmbientShadowColor="#4D71A3"
+                    android:text="View All Services"
+                    android:textColor="#4D71A3"
+                    android:textSize="15dp"/>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/pest_linear_search"
                 android:layout_width="match_parent"
                 android:layout_height="500dp"
-                android:layout_below="@id/gridview"
+                android:layout_below="@id/gridviewAdapter"
                 android:layout_marginTop="-7dp"
                 android:background="#FFFFFF"
                 android:orientation="vertical">
@@ -266,18 +291,18 @@
         android:layout_height="wrap_content">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/Cart_Main"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:id="@+id/Cart_Main"
-            android:visibility="gone"
-            android:elevation="30dp"
             android:layout_alignParentBottom="true"
-            android:background="#000000">
+            android:background="#000000"
+            android:elevation="30dp"
+            android:visibility="gone">
 
             <LinearLayout
+                android:id="@+id/CartLinear_Main"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/CartLinear_Main"
                 android:layout_margin="10dp"
                 android:background="#000000">
 
@@ -308,7 +333,6 @@
         </androidx.cardview.widget.CardView>
 
     </RelativeLayout>
-
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

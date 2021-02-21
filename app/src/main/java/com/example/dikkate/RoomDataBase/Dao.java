@@ -102,6 +102,10 @@ public interface Dao {
     @Query("Update Catergory_User_mapping set level=:level_final where i=:UserID And level=:level_initial")
     void UpdateCart(int level_final, int level_initial, int UserID);
 
+    @Query("Update Catergory_User_mapping set level=:level_final where UserID=:UserID And level=:level_initial")
+    void UpdateCart_User(int level_final, int level_initial, int UserID);
+
+
     @Query("DELETE FROM Catergory_User_mapping WHERE i=:i")
     void RemoveCartItemsBeforeCall(int i);
 
@@ -117,6 +121,24 @@ public interface Dao {
 
     @Query("Select stars from Catergory_User_mapping where i=:PrimaryKeyID")
     float  StarFill(int PrimaryKeyID);
+
+    @Query("Select * from Catergory_User_mapping where EmployeeIdAssigned=:UserID and level=:level")
+    List<Catergory_User_mapping> CartEmployee(int UserID ,int level);
+
+    //feedback
+
+
+    @Query("SELECT * FROM Catergory_User_mapping WHERE CategoryID=:ID and stars<>:star")
+    List<Catergory_User_mapping>Feedbacks(int ID, float star);
+
+    @Query("Select TotalUsers.Name from TotalUsers left Join Catergory_User_mapping on TotalUsers.i = Catergory_User_mapping.UserID where Catergory_User_mapping.i =:UserID")
+    String Completefeedback(int UserID);
+
+    @Query("Select TotalUsers.Address from TotalUsers left Join Catergory_User_mapping on TotalUsers.i = Catergory_User_mapping.UserID where Catergory_User_mapping.i =:UserID")
+    String CompletefeedbackAddress(int UserID);
+
+    @Query("SELECT AVG(stars) From Catergory_User_mapping where CategoryID=:ID and stars<>:value")
+    float Average_Feedback(int ID,float value);
 
 
 }

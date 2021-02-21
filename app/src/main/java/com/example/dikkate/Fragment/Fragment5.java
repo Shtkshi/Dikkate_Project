@@ -21,7 +21,6 @@ import com.example.dikkate.RoomDataBase.database;
 import com.example.dikkate.R;
 
 import com.example.dikkate.Util.CartAdapter;
-import com.example.dikkate.Util.FeedbackAdapter;
 
 import java.util.List;
 
@@ -49,7 +48,7 @@ public class Fragment5 extends Fragment {
         UserID=sharedPreferences.getInt("UserId",-1);
 
         dao= database.getInstance(getContext()).dao();
-        arr=dao.CartItems(UserID,3);
+        arr=dao.CartEmployee(UserID,3);
 
 
         //RecyclerView

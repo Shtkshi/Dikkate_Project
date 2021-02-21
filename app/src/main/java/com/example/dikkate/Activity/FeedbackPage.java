@@ -21,10 +21,7 @@ public class FeedbackPage extends AppCompatActivity {
 
     float star;
     String feed = "";
-    int Bill_No;
-    int User_Id;
     int PrimaryKeyID;
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +32,6 @@ public class FeedbackPage extends AppCompatActivity {
 
         Dao dao = database.getInstance(getApplicationContext()).dao();
         MaterialRatingBar ratingBar = findViewById(R.id.feedback_star);
-        ratingBar.setElevation(dao.StarFill(PrimaryKeyID));
         ratingBar.setOnRatingChangeListener(new MaterialRatingBar.OnRatingChangeListener() {
             @Override
             public void onRatingChanged(MaterialRatingBar ratingBar, float rating) {
@@ -47,10 +43,15 @@ public class FeedbackPage extends AppCompatActivity {
         findViewById(R.id.feedback_submit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (star != -1) {
-                    feed=feedback.getText().toString();
-                    dao.ReviewStars(star,PrimaryKeyID,feed);
+                if(star!=-1) {
+                    feed = feedback.getText().toString();
+                    dao.ReviewStars(star, PrimaryKeyID, feed);
+                    Intent intent = new Intent(FeedbackPage.this, viewDetails.class);
+                    intent.putExtra("PrimaryKeyID",PrimaryKeyID);
+                    startActivity(intent);
+                    finish();
                 }
+
             }
         });
     }

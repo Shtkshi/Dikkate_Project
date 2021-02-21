@@ -13,16 +13,21 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dikkate.Activity.CartPage1;
+import com.example.dikkate.Activity.Services_Activities.Ac_Service_and_Repair.AC;
 import com.example.dikkate.R;
 import com.example.dikkate.RoomDataBase.Catergory_User_mapping;
 import com.example.dikkate.RoomDataBase.Dao;
 import com.example.dikkate.RoomDataBase.database;
+import com.example.dikkate.Util.FeedbackAdapter;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static android.view.View.INVISIBLE;
 
@@ -37,7 +42,7 @@ public class Appliance extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         CollapsingToolbarLayout toolBarLayout = findViewById(R.id.toolbar_layout);
-        toolBarLayout.setTitle(getTitle());
+        toolBarLayout.setTitle("Appliances");
         dao = database.getInstance(getApplicationContext()).dao();
 
         //UserId
@@ -71,6 +76,14 @@ public class Appliance extends AppCompatActivity {
         //CartService
 
         CartService();
+
+        //Feedback
+        Feedback();
+        TextView AverageStars=findViewById(R.id.Stars_average_appliances);
+        AverageStars.setText(String.valueOf(dao.Average_Feedback(2,0)));
+
+        TextView AverageStars2=findViewById(R.id.starAverageAppliances);
+        AverageStars2.setText(String.valueOf(dao.Average_Feedback(2,0)));
 
 
     }
@@ -166,6 +179,19 @@ public class Appliance extends AppCompatActivity {
 
         // to start autocycle below method is used.
         sliderView.startAutoCycle();
+
+    }
+    RecyclerView RecyclerViewFeedback;
+    FeedbackAdapter feedbackAdapter;
+    List<Catergory_User_mapping> feedbacks;
+    private void Feedback(){
+        feedbacks=dao.Feedbacks(2,0);
+        RecyclerViewFeedback=(RecyclerView)findViewById(R.id.recyclefeedbackAppliances);
+        RecyclerViewFeedback.setLayoutManager(new LinearLayoutManager(Appliance.this,LinearLayoutManager.VERTICAL,false));
+        feedbackAdapter=new FeedbackAdapter(Appliance.this,feedbacks,dao);
+        RecyclerViewFeedback.setAdapter(feedbackAdapter);
+        RecyclerViewFeedback.setLayoutManager(new LinearLayoutManager(this));
+
 
     }
 }

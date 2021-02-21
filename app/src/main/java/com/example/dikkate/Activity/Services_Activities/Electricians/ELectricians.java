@@ -11,6 +11,7 @@ import com.example.dikkate.Activity.Services_Activities.Appliance_Repair.SliderA
 import com.example.dikkate.RoomDataBase.Catergory_User_mapping;
 import com.example.dikkate.RoomDataBase.Dao;
 import com.example.dikkate.RoomDataBase.database;
+import com.example.dikkate.Util.FeedbackAdapter;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -18,6 +19,8 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +31,7 @@ import com.example.dikkate.R;
 import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static android.view.View.INVISIBLE;
 
@@ -76,6 +80,14 @@ public class ELectricians extends AppCompatActivity {
         //CartService
 
         CartService();
+
+
+        //FeedbackStars
+        TextView AverageStars=findViewById(R.id.Stars_average_Electrician);
+        AverageStars.setText(String.valueOf(dao.Average_Feedback(5,0)));
+
+        TextView AverageStars2=findViewById(R.id.starAverageElectrician);
+        AverageStars2.setText(String.valueOf(dao.Average_Feedback(5,0)));
 
     }
     void CartService() {
@@ -134,11 +146,11 @@ public class ELectricians extends AppCompatActivity {
 
 
         // adding the urls inside array list
-        sliderDataArrayList.add(R.drawable.ac_one);
-        sliderDataArrayList.add(R.drawable.ac_two);
-        sliderDataArrayList.add(R.drawable.ac_three);
-        sliderDataArrayList.add(R.drawable.acservices);
-        sliderDataArrayList.add(R.drawable.air);
+        sliderDataArrayList.add(R.drawable.oneelectrician);
+        sliderDataArrayList.add(R.drawable.twoelectrician);
+        sliderDataArrayList.add(R.drawable.threeelectricain);
+        sliderDataArrayList.add(R.drawable.electriansservices);
+        sliderDataArrayList.add(R.drawable.fourelectrician);
 
         // passing this array list inside our adapter class.
         SliderAdapter adapter = new SliderAdapter(this, sliderDataArrayList);
@@ -161,6 +173,19 @@ public class ELectricians extends AppCompatActivity {
 
         // to start autocycle below method is used.
         sliderView.startAutoCycle();
+
+    }
+    RecyclerView RecyclerViewFeedback;
+    FeedbackAdapter feedbackAdapter;
+    List<Catergory_User_mapping> feedbacks;
+    private void Feedback(){
+        feedbacks=dao.Feedbacks(5,0);
+        RecyclerViewFeedback=(RecyclerView)findViewById(R.id.recyclefeedbackElectrician);
+        RecyclerViewFeedback.setLayoutManager(new LinearLayoutManager(ELectricians.this,LinearLayoutManager.VERTICAL,false));
+        feedbackAdapter=new FeedbackAdapter(ELectricians.this,feedbacks,dao);
+        RecyclerViewFeedback.setAdapter(feedbackAdapter);
+        RecyclerViewFeedback.setLayoutManager(new LinearLayoutManager(this));
+
 
     }
 }

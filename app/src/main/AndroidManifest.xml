@@ -15,7 +15,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Dikkate">
-        <activity android:name=".Activity.Payment"></activity>
+        <activity
+            android:name=".Activity.AllCategories"
+            android:label="@string/title_activity_all_categories"
+            android:theme="@style/Theme.Dikkate.NoActionBar"></activity>
+        <activity android:name=".Activity.ViewDetailsCart" />
+        <activity android:name=".Activity.Payment" />
         <activity android:name=".Activity.Phone" />
         <activity android:name=".Activity.Address" />
         <activity android:name=".Activity.viewDetails" />

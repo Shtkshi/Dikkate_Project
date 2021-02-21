@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.dikkate.R;
+
 public class ViewDetailsCart extends AppCompatActivity {
 
     @Override

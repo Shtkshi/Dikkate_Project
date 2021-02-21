@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,10 +19,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chivorn.smartmaterialspinner.SmartMaterialSpinner;
+import com.example.dikkate.Fragment.Fragment3;
 import com.example.dikkate.R;
 import com.example.dikkate.RoomDataBase.Dao;
 import com.example.dikkate.RoomDataBase.TotalUsers;
@@ -42,7 +45,7 @@ public class viewDetails extends AppCompatActivity {
     SmartMaterialSpinner<String> spinner;
     int UserId = -1;
     ArrayList<String> names = new ArrayList<>();
-
+    Context mCtx;
     String name;
     int nextPosition = 0;
     int bill = 0;
@@ -57,13 +60,7 @@ public class viewDetails extends AppCompatActivity {
         Timeline_Horizontal(nextPosition);
         Bundle extras = getIntent().getExtras();
         spinner = findViewById(R.id.SearchableSpinner_Fragment4);
-        if (extras != null) {
-            bill = extras.getInt("Complaint No");
-            name = extras.getString("Complaint Name");
-            SharedPreferences sharedPreferences = getSharedPreferences("Bill", Context.MODE_PRIVATE);
-            sharedPreferences.edit().putInt("bill", bill).apply();
 
-        }
 
         Intent intent = getIntent();
         PrimaryKeyID = intent.getExtras().getInt("PrimaryKeyID", -1);
@@ -159,7 +156,7 @@ public class viewDetails extends AppCompatActivity {
             linearLayout1.setVisibility(View.VISIBLE);
             initSpinner(bill, PrimaryKeyID);
 
-        }else if(nextPosition==4){//Payment
+        } else if (nextPosition == 4) {//Payment
             //Call
             LinearLayout linearLayout = findViewById(R.id.Linear_Call);
             linearLayout.setVisibility(View.INVISIBLE);
@@ -178,7 +175,7 @@ public class viewDetails extends AppCompatActivity {
             LinearLayout linearLayout1 = findViewById(R.id.employee_status_fragment4);
             linearLayout1.setVisibility(View.INVISIBLE);
 
-        }else if(nextPosition==5){//Review
+        } else if (nextPosition == 5) {//Review
             //Call
             LinearLayout linearLayout = findViewById(R.id.Linear_Call);
             linearLayout.setVisibility(View.INVISIBLE);
@@ -194,7 +191,7 @@ public class viewDetails extends AppCompatActivity {
             Review.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent=new Intent(viewDetails.this,FeedbackPage.class);
+                    Intent intent = new Intent(viewDetails.this, FeedbackPage.class);
                     intent.putExtra("PrimaryKeyID", PrimaryKeyID);
                     startActivity(intent);
                 }
@@ -205,8 +202,7 @@ public class viewDetails extends AppCompatActivity {
             LinearLayout linearLayout1 = findViewById(R.id.employee_status_fragment4);
             linearLayout1.setVisibility(View.INVISIBLE);
 
-        }
-        else {
+        } else {
             //Call
             LinearLayout linearLayout = findViewById(R.id.Linear_Call);
             linearLayout.setVisibility(View.INVISIBLE);
@@ -309,14 +305,11 @@ public class viewDetails extends AppCompatActivity {
                 if (names.get(position).equals("No-One")) {
                     UserId = -1;
                     dao.UpdateEmployee(-1, PrimaryKeyID);
-                    dao.EmployeeSelection(-1, bill);
-
 
                 } else {
                     TextView textView = findViewById(R.id.EmployeeAssignedID);
                     UserId = workers.get(position).getI();
                     dao.UpdateEmployee(workers.get(position).getI(), PrimaryKeyID);
-                    dao.EmployeeSelection(workers.get(position).getI(), bill);
                     textView.setText(dao.EmployeeAssignedName(PrimaryKeyID));
 
                 }
@@ -332,7 +325,12 @@ public class viewDetails extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        //Intent intent=Intent(viewDetails.class, Fragment3.getActivity());
+
+
+        Intent intent=new Intent(viewDetails.this,NavigationDrawerActivity.class);
+        startActivity(intent);
+        finish();
+
     }
 }
 
